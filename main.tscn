@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://cxo2vb7wrdllr"]
+
+[ext_resource type="Texture2D" uid="uid://bxr53trob86g5" path="res://themes/icons/brush.svg" id="1_dg77c"]
+[ext_resource type="Script" uid="uid://7c2pmmkkkcsq" path="res://main.gd" id="1_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bqw62gbghxr81" path="res://themes/icons/new_image.svg" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://uygmm0hntxu" path="res://themes/icons/save.svg" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://tdviw4xmdk1r" path="res://themes/icons/load.svg" id="3_5vw27"]
+[ext_resource type="Script" uid="uid://ci85omc7dxkcb" path="res://scripts/ui/navbar/nv_file.gd" id="3_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dqkae5k4vryg0" path="res://themes/icons/undo.svg" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://ukc3ljr6qyim" path="res://themes/icons/redo.svg" id="5_4c57u"]
+[ext_resource type="Texture2D" uid="uid://vqi5el0wcmfh" path="res://themes/icons/cut.svg" id="5_efxa6"]
+[ext_resource type="Texture2D" uid="uid://btk0pdoj02s3u" path="res://themes/icons/copy.svg" id="6_dg77c"]
+[ext_resource type="Texture2D" uid="uid://c806v714s6h2w" path="res://themes/icons/paste.svg" id="7_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dmylnbj1yvgxy" path="res://themes/icons/zoom_in.svg" id="12_w48qg"]
+[ext_resource type="Texture2D" uid="uid://drnxf7hwyfkge" path="res://themes/icons/zoom_out.svg" id="13_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dx1uj05xyi25f" path="res://themes/icons/frame.svg" id="14_2cqfq"]
+
+[node name="Main" type="Node" unique_id=416024504]
+script = ExtResource("1_ycdy4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1165265502]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=172289532]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Topbar" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=1263349056]
+layout_mode = 2
+theme_type_variation = &"PanelContainerOpaque"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Topbar" unique_id=1897565777]
+layout_mode = 2
+
+[node name="LogoButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1175429986]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+icon = ExtResource("1_dg77c")
+flat = true
+expand_icon = true
+
+[node name="FilePopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=659516085]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "File"
+flat = true
+script = ExtResource("3_dg77c")
+
+[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" unique_id=1616262345]
+oversampling_override = 1.0
+size = Vector2i(134, 157)
+item_count = 5
+item_0/text = "New Image"
+item_0/id = 0
+item_1/text = "Open Image"
+item_1/id = 1
+item_2/text = "Saving"
+item_2/id = 3
+item_2/separator = true
+item_3/text = "Save Image"
+item_3/id = 2
+item_4/text = "Save Image as"
+item_4/id = 4
+
+[node name="EditPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1256799707]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "Edit"
+flat = true
+
+[node name="ViewPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1637815154]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "View"
+flat = true
+
+[node name="ImagePopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=248731011]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "Image"
+flat = true
+
+[node name="LayerPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1722555763]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "Layers"
+flat = true
+
+[node name="AdjustPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1264689607]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "Adjustments"
+flat = true
+
+[node name="EffectsPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1727737825]
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "Effects"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=920030218]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer" unique_id=1681395419]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1594683317]
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=771852414]
+layout_mode = 2
+icon = ExtResource("2_5vw27")
+
+[node name="Button5" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1820211299]
+layout_mode = 2
+icon = ExtResource("2_272bh")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=184078407]
+layout_mode = 2
+icon = ExtResource("3_5vw27")
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=2074381069]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=795993961]
+layout_mode = 2
+icon = ExtResource("5_efxa6")
+
+[node name="Button8" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1946567514]
+layout_mode = 2
+icon = ExtResource("6_dg77c")
+
+[node name="Button9" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=485714097]
+layout_mode = 2
+icon = ExtResource("7_ycdy4")
+
+[node name="VSeparator4" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=57532923]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=485185572]
+layout_mode = 2
+icon = ExtResource("4_kek77")
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=516518324]
+layout_mode = 2
+icon = ExtResource("5_4c57u")
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1310959742]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1940760105]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProjectListButtons" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer" unique_id=1672622700]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=447603666]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=975712947]
+layout_mode = 2
+icon = ExtResource("12_w48qg")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=72566686]
+layout_mode = 2
+icon = ExtResource("13_vivmo")
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=200794815]
+layout_mode = 2
+icon = ExtResource("14_2cqfq")
+
+[node name="Editors" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=1730061294]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" to="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" method="_on_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton/PopupMenu" to="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" method="_on_popup_menu_id_pressed"]

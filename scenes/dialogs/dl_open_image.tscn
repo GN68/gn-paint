@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://00pca47gfuwm"]
+
+[ext_resource type="Script" uid="uid://d2eays7p2ulkd" path="res://scenes/dialogs/dl_open_image.gd" id="1_opef3"]
+
+[node name="FileDialog" type="FileDialog" unique_id=43290499]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.gnp", "*.png", "*.jpg", "*.jpeg", "*.webp")
+use_native_dialog = true
+script = ExtResource("1_opef3")
+
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

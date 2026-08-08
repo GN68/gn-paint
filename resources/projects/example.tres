@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GNpProject" format=3 uid="uid://b1s0smnncb8eh"]
+
+[ext_resource type="Script" uid="uid://ckf3egpd5b3ir" path="res://scripts/resources/pj_project.gd" id="1_cpxfa"]
+
+[resource]
+script = ExtResource("1_cpxfa")
+metadata/_custom_type_script = "uid://ckf3egpd5b3ir"

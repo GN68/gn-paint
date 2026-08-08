@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bdwblg5rbmxr5"]
+
+[ext_resource type="Script" uid="uid://bjqllff04ikks" path="res://scripts/globals/tool_manager.gd" id="1_qewn8"]
+[ext_resource type="PackedScene" uid="uid://bq4kawsswbq1t" path="res://scenes/tools/tl_select.tscn" id="2_0aje3"]
+[ext_resource type="PackedScene" uid="uid://dwb8hbt55848g" path="res://scenes/tools/tl_brush.tscn" id="2_8gpkc"]
+
+[node name="ToolManager" type="Node" unique_id=40885977]
+script = ExtResource("1_qewn8")
+
+[node name="Select" parent="." unique_id=520043606 instance=ExtResource("2_0aje3")]
+
+[node name="Brush" parent="." unique_id=740258627 instance=ExtResource("2_8gpkc")]

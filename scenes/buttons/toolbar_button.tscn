@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://my6cxow4fawc"]
+
+[ext_resource type="Texture2D" uid="uid://bxr53trob86g5" path="res://themes/icons/brush.svg" id="1_ektug"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1bvp3"]
+
+[node name="Button" type="Button" unique_id=1443035166]
+material = SubResource("CanvasItemMaterial_1bvp3")
+custom_minimum_size = Vector2(0, 32)
+icon = ExtResource("1_ektug")
+icon_alignment = 1
+expand_icon = true

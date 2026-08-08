@@ -1,0 +1,336 @@
+[gd_scene format=3 uid="uid://cxtw343i2chh4"]
+
+[ext_resource type="Script" uid="uid://dembb1m4wwmo" path="res://scripts/editor.gd" id="1_4s0cy"]
+[ext_resource type="Script" uid="uid://baofyduokcymq" path="res://scripts/ui/ui_canvas.gd" id="3_3btpq"]
+[ext_resource type="Script" uid="uid://cis6gdm8ceus7" path="res://scripts/ui/ui_toolbar.gd" id="3_7py46"]
+[ext_resource type="Script" uid="uid://b60svabburo36" path="res://scripts/ui/buttons/ui_btn_tool_status.gd" id="4_7py46"]
+[ext_resource type="Script" uid="uid://d0fbr2o7dvfyh" path="res://scripts/ui/ui_tool_options.gd" id="5_7py46"]
+[ext_resource type="Texture2D" uid="uid://dyx2joy2uc5xq" path="res://themes/icons/layer_add.svg" id="5_gbsbp"]
+[ext_resource type="Script" uid="uid://bsd8y0kggqyan" path="res://scripts/ui/ui_layers.gd" id="5_k4288"]
+[ext_resource type="Texture2D" uid="uid://bbdcv4ri05ij1" path="res://themes/icons/layer_remove.svg" id="6_t27w5"]
+[ext_resource type="Texture2D" uid="uid://d0e3g5dnd4ej4" path="res://themes/icons/layer.svg" id="7_k4288"]
+[ext_resource type="Texture2D" uid="uid://bo8622en3s2dt" path="res://themes/icons/layer_merge.svg" id="8_8yjtx"]
+[ext_resource type="Texture2D" uid="uid://dcvse13kebgdd" path="res://themes/icons/up.svg" id="9_3btpq"]
+[ext_resource type="Texture2D" uid="uid://cpmjo5w8cwmua" path="res://themes/icons/down.svg" id="10_7py46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwt3s"]
+content_margin_left = 4.0
+
+[sub_resource type="Shader" id="Shader_ocoay"]
+code = "shader_type canvas_item;
+
+uniform float smoothness : hint_range(0.0, 1.0, 0.001) = 1;
+uniform int resolution : hint_range(1, 16000, 1); 
+
+//void vertex() {}
+
+
+void fragment() {
+	float dist = length(UV-0.5);
+	float sharpness = max(smoothness,2.0/float(resolution));
+	float a = smoothstep(0.5, 0.5-sharpness*0.5, length(UV-vec2(0.5)));
+	COLOR = vec4(1,1,1,a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwt3s"]
+shader = SubResource("Shader_ocoay")
+shader_parameter/smoothness = 0.0
+shader_parameter/resolution = 82
+
+[node name="Editor" type="Control" unique_id=730116994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4s0cy")
+
+[node name="Workspace" type="CanvasLayer" parent="." unique_id=1307640200]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="Workspace" unique_id=670935158]
+zoom = Vector2(2, 2)
+
+[node name="Canvas" type="Node2D" parent="Workspace" unique_id=1790274033]
+script = ExtResource("3_3btpq")
+
+[node name="Overlays" type="Node2D" parent="Workspace/Canvas" unique_id=1013343380]
+
+[node name="Layers" type="Node2D" parent="Workspace/Canvas" unique_id=1135831738]
+top_level = true
+
+[node name="UI" type="Control" parent="." unique_id=2137456592]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="OpenImageButton" type="Button" parent="UI" unique_id=870231321]
+visible = false
+layout_mode = 0
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 127.0
+text = "Open"
+
+[node name="FileDialog" type="FileDialog" parent="UI/OpenImageButton" unique_id=990149948]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.bmp", "*.ktx", "*.exr", "*.hdr", "*.jpg", "*.jpeg", "*.png", "*.tga", "*.webp")
+use_native_dialog = true
+
+[node name="SaveImageButton" type="Button" parent="UI" unique_id=1530921253]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 296.0
+offset_top = 96.0
+offset_right = 456.0
+offset_bottom = 128.0
+text = "Save"
+
+[node name="SaveImageDialog" type="FileDialog" parent="UI/SaveImageButton" unique_id=11098944]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+access = 2
+filters = PackedStringArray("*.dds", "*.exr", "*.jpg", "*.jpeg", "*.png", "*.webp")
+use_native_dialog = true
+
+[node name="NewImageButton" type="Button" parent="UI" unique_id=620121037]
+visible = false
+layout_mode = 0
+offset_left = 464.0
+offset_top = 96.0
+offset_right = 624.0
+offset_bottom = 128.0
+text = "New Image"
+
+[node name="ImageWizard" type="PopupPanel" parent="UI/NewImageButton" unique_id=1827292471]
+oversampling_override = 1.0
+title = "Image Wizard"
+initial_position = 2
+size = Vector2i(276, 136)
+borderless = false
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/NewImageButton/ImageWizard" unique_id=443713699]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 272.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/NewImageButton/ImageWizard/MarginContainer" unique_id=888965127]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=577194990]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1573738426]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resolution" type="Label" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1789809834]
+layout_mode = 2
+text = "Resolution"
+
+[node name="HSeparator" type="HSeparator" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2000587013]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WidthEntry" type="HBoxContainer" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=238850919]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry" unique_id=484565030]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Width"
+
+[node name="Spinbox" type="SpinBox" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry" unique_id=1028805764]
+layout_mode = 2
+min_value = 1.0
+max_value = 16384.0
+value = 480.0
+
+[node name="HeightEntry" type="HBoxContainer" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=2021635162]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HeightEntry" unique_id=1502432233]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Height"
+
+[node name="Spinbox" type="SpinBox" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HeightEntry" unique_id=317314946]
+layout_mode = 2
+min_value = 1.0
+max_value = 16384.0
+value = 360.0
+
+[node name="WidthEntry3" type="HBoxContainer" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=1745609887]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry3" unique_id=613825076]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="AcceptButton" type="Button" parent="UI/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry3" unique_id=700136962]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="UI" unique_id=662622378]
+visible = false
+layout_mode = 0
+offset_left = 504.0
+offset_right = 664.0
+offset_bottom = 32.0
+color = Color(1, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=1097487361]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 240.0
+
+[node name="Toolbar" type="VBoxContainer" parent="UI/PanelContainer" unique_id=344959063]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("3_7py46")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=523225346]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Ribbon" type="ScrollContainer" parent="UI/VBoxContainer" unique_id=1021938980]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+scroll_horizontal_by_default = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/VBoxContainer/Ribbon" unique_id=2060628878]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ToolStatusPanel" type="PanelContainer" parent="UI/VBoxContainer/Ribbon/HBoxContainer3" unique_id=921351031]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/VBoxContainer/Ribbon/HBoxContainer3/ToolStatusPanel" unique_id=1791925232]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/Ribbon/HBoxContainer3/ToolStatusPanel/HBoxContainer2" unique_id=1512494449]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bwt3s")
+text = "Tool"
+
+[node name="ToolMenuButton" type="OptionButton" parent="UI/VBoxContainer/Ribbon/HBoxContainer3/ToolStatusPanel/HBoxContainer2" unique_id=1142852824]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+clip_text = true
+expand_icon = true
+script = ExtResource("4_7py46")
+
+[node name="ToolOptions" type="PanelContainer" parent="UI/VBoxContainer/Ribbon/HBoxContainer3" unique_id=431930655]
+layout_mode = 2
+script = ExtResource("5_7py46")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/VBoxContainer/Ribbon" unique_id=579072494]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="UI" unique_id=37276995]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -256.0
+offset_right = 200.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="LayersPanel" type="PanelContainer" parent="UI" unique_id=1580610436]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -264.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_k4288")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/LayersPanel" unique_id=1854815202]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/LayersPanel/VBoxContainer" unique_id=259399098]
+layout_mode = 2
+text = "Layers"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/LayersPanel/VBoxContainer" unique_id=577387567]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/LayersPanel/VBoxContainer/ScrollContainer" unique_id=2006338643]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/LayersPanel/VBoxContainer" unique_id=503335205]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AddLayerButton" type="Button" parent="UI/LayersPanel/VBoxContainer/HBoxContainer" unique_id=926643209]
+layout_mode = 2
+icon = ExtResource("5_gbsbp")
+
+[node name="RemoveLayerButton" type="Button" parent="UI/LayersPanel/VBoxContainer/HBoxContainer" unique_id=977369979]
+layout_mode = 2
+icon = ExtResource("6_t27w5")
+
+[node name="DuplicateLayerButton" type="Button" parent="UI/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1306772569]
+layout_mode = 2
+icon = ExtResource("7_k4288")
+
+[node name="MergeDownLayerButton" type="Button" parent="UI/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1662529985]
+layout_mode = 2
+icon = ExtResource("8_8yjtx")
+
+[node name="MoveUpLayerButton" type="Button" parent="UI/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1574345467]
+layout_mode = 2
+icon = ExtResource("9_3btpq")
+
+[node name="MoveDownLayerButton" type="Button" parent="UI/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1275968225]
+layout_mode = 2
+icon = ExtResource("10_7py46")
+
+[node name="Dev" type="Node" parent="." unique_id=370497456]
+
+[node name="ShaderRect" type="ColorRect" parent="Dev" unique_id=661466107]
+visible = false
+material = SubResource("ShaderMaterial_bwt3s")
+offset_left = -256.0
+offset_top = -256.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

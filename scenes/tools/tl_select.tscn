@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bq4kawsswbq1t"]
+
+[ext_resource type="Script" uid="uid://bydfccxqvpeax" path="res://scenes/tools/tl_brush.gd" id="1_lximk"]
+[ext_resource type="Texture2D" uid="uid://2q2wbm6w4sxt" path="res://themes/icons/select.svg" id="2_lximk"]
+
+[node name="Select" type="Node" unique_id=520043606 node_paths=PackedStringArray("toolbar", "overlay")]
+script = ExtResource("1_lximk")
+tool_name = "Select"
+tool_icon = ExtResource("2_lximk")
+toolbar = NodePath("SelectToolbar")
+overlay = NodePath("Canvas")
+
+[node name="SelectToolbar" type="HBoxContainer" parent="." unique_id=659407457]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+
+[node name="Canvas" type="Node2D" parent="." unique_id=1440808620]

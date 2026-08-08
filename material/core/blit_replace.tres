@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dcfegpdevxvn5"]
+
+[sub_resource type="Shader" id="Shader_efxa6"]
+code = "shader_type texture_blit;
+
+uniform sampler2D tex1:hint_blit_source0;
+
+void blit() {
+	COLOR0 = texture(tex1,UV) * MODULATE;
+}
+"
+
+[resource]
+shader = SubResource("Shader_efxa6")

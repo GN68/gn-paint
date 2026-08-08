@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dwb8hbt55848g"]
+
+[ext_resource type="Script" uid="uid://bydfccxqvpeax" path="res://scenes/tools/tl_brush.gd" id="1_y20bj"]
+[ext_resource type="Texture2D" uid="uid://bxr53trob86g5" path="res://themes/icons/brush.svg" id="2_g6n52"]
+
+[node name="Brush" type="Node" unique_id=520043606 node_paths=PackedStringArray("toolbar", "overlay")]
+script = ExtResource("1_y20bj")
+tool_name = "Brush"
+tool_icon = ExtResource("2_g6n52")
+toolbar = NodePath("BrushToolbar")
+overlay = NodePath("Canvas")
+
+[node name="BrushToolbar" type="HBoxContainer" parent="." unique_id=659407457]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="BrushToolbar" unique_id=903290994]
+layout_mode = 2
+text = "Brush Size"
+
+[node name="BrushSizeSpinBox" type="SpinBox" parent="BrushToolbar" unique_id=806721960]
+layout_mode = 2
+value = 4.0
+rounded = true
+allow_greater = true
+suffix = "px"
+
+[node name="Canvas" type="Node2D" parent="." unique_id=1440808620]

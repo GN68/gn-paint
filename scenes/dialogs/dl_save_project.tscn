@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://1pksvuix21oo"]
+
+[ext_resource type="Script" uid="uid://cf1vynyt8ph80" path="res://scenes/dialogs/dl_save_project.gd" id="1_ocmut"]
+
+[node name="FileDialog" type="FileDialog" unique_id=43290499]
+access = 2
+filters = PackedStringArray("*.gnp")
+use_native_dialog = true
+script = ExtResource("1_ocmut")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]
