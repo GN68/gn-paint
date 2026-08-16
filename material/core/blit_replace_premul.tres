@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://burv0332r4goy"]
+
+[sub_resource type="Shader" id="Shader_efxa6"]
+code = "shader_type texture_blit;
+render_mode blend_disabled;
+
+uniform sampler2D tex1: hint_blit_source0;
+
+void blit() {
+	vec4 clr = texture(tex1,UV);
+	COLOR0 = vec4(clr.rgb / clr.a,clr.a);
+}
+"
+
+[resource]
+shader = SubResource("Shader_efxa6")

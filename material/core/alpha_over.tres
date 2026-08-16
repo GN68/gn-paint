@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bnmdd7xvn7t7n"]
+
+[sub_resource type="Shader" id="Shader_6fkfq"]
+code = "shader_type texture_blit;
+render_mode blend_mix;
+
+uniform sampler2D source_texture0 : hint_blit_source0;
+
+const float s = 1.0/255.0;
+
+void blit() {
+	// Copies from each whole source texture to a rect on each output texture.
+	vec4 clr = texture(source_texture0, UV);
+	COLOR0 = vec4(clr.rgb / max(clr.a,s),clr.a) * MODULATE;
+}"
+
+[resource]
+shader = SubResource("Shader_6fkfq")

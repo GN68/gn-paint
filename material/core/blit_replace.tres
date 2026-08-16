@@ -2,8 +2,9 @@
 
 [sub_resource type="Shader" id="Shader_efxa6"]
 code = "shader_type texture_blit;
+render_mode blend_disabled;
 
-uniform sampler2D tex1:hint_blit_source0;
+uniform sampler2D tex1: hint_blit_source0;
 
 void blit() {
 	COLOR0 = texture(tex1,UV) * MODULATE;

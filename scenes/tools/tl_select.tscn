@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bq4kawsswbq1t"]
 
-[ext_resource type="Script" uid="uid://bydfccxqvpeax" path="res://scenes/tools/tl_brush.gd" id="1_lximk"]
+[ext_resource type="Script" uid="uid://dtcq4g6ex0366" path="res://scenes/tools/tl_select.gd" id="1_v637i"]
 [ext_resource type="Texture2D" uid="uid://2q2wbm6w4sxt" path="res://themes/icons/select.svg" id="2_lximk"]
 
 [node name="Select" type="Node" unique_id=520043606 node_paths=PackedStringArray("toolbar", "overlay")]
-script = ExtResource("1_lximk")
+script = ExtResource("1_v637i")
 tool_name = "Select"
 tool_icon = ExtResource("2_lximk")
 toolbar = NodePath("SelectToolbar")

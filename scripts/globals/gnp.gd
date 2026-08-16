@@ -3,53 +3,68 @@ extends Node
 
 const FILE_EXTENSION = "gnp"
 
-const EDITOR = preload("res://editor.tscn")
+var editor: GNpEditorRoot
 
-var current_editor: GNpEditor
-var editors: Array[GNpEditor] = [] ## Holds all instances of editors
-var root: GNpEditorRoot ## Pointer to the root of the program, the one that holds all editors
+var active_project: GNpProject
+var projects: Array[GNpProject] = [] ## Holds all instances of editors
 
-signal editor_changed(editor: GNpEditor)
-signal editor_added(index: int, editor: GNpEditor)
-signal editor_removed(index: int, editor: GNpEditor)
+signal active_project_changed(project: GNpProject)
+signal project_added(index: int, project: GNpProject)
+signal project_removed(index: int, project: GNpProject)
 
 
-## Creates a new editor using the given project
-func new_editor(project: GNpProject):
-	var new_editor:GNpEditor = EDITOR.instantiate()
-	var id = editors.size()
-	editors.append(new_editor)
-	root.parent_editor(new_editor)
-	new_editor.setup(project)
-	editor_added.emit(id,new_editor)
-	set_focused_editor(new_editor)
-
+func load_project(project: GNpProject, auto_active: bool = true):
+	if !projects.has(project):
+		projects.append(project)
+		if auto_active:
+			set_active_project(project)
+			project_added.emit(projects.find(project),project)
+	else:
+		push_warning("Attempted to open an already opened project")
 
 ## Force closes an editor
-func close_editor(editor: GNpEditor):
-	for i in range(editors.size()):
-		var e = editors[i]
-		if e == editor:
-			editor.queue_free()
-			editor_removed.emit(i,editor)
+func close_project(project: GNpEditor):
+	if project.has(project):
+		var id = projects.find(project)
+		project.queue_free()
+		project_removed.emit(id,project)
+	else:
+		push_warning("Attempted to close a project that wasnt loaded")
 
 
-## Returns the editor the given node belongs to
-func get_editor(node: Node) -> GNpEditor:
-	for editor in editors:
-		if editor.is_ancestor_of(node):
-			return editor
-	push_error("No editor found related to given node: ",node)
-	return null
+func set_active_project(project: GNpProject):
+	if project != active_project:
+		var last_project = active_project
+		active_project = project
+		active_project_changed.emit(active_project,last_project)
 
-func set_focused_editor(editor: GNpEditor):
-	if editors.has(editor):
-		for e in editors:
-			e.set_active(e == editor)
-		if editor != current_editor:
-			current_editor = editor
-			editor_changed.emit(editors)
+#================================================
 
+var color_primary: Color = Color.BLACK : set = set_color_primary
+var color_secondary: Color = Color.WHITE : set = set_color_secondary
+
+## Emits 
+signal color_changed(primary_color: Color, secondary_color: Color)
+
+func swap_colors():
+	var temp = color_secondary
+	
+	color_secondary = color_primary
+	color_primary = temp
+
+
+func set_color_primary(color: Color):
+	if color_primary != color:
+		color_primary = color
+		color_changed.emit(color_primary,color_secondary)
+
+
+func set_color_secondary(color: Color):
+	if color_secondary != color:
+		color_secondary = color
+		color_changed.emit(color_primary,color_secondary)
+
+#================================================
 # TODO: implement fully 
 func thumbnail_project(path):
 	# https://specifications.freedesktop.org/thumbnail/latest-single/

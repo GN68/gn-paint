@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://darmmicctllrt"]
+
+[node name="ColorPicker" type="ColorPicker" unique_id=420292575]
+offset_right = 294.0
+offset_bottom = 563.0
+edit_intensity = false

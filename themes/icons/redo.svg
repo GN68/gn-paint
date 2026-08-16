@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M396-200q-97 0-166.5-63T160-420q0-94 69.5-157T396-640h252L544-744l56-56 200 200-200 200-56-56 104-104H396q-63 0-109.5 40T240-420q0 60 46.5 100T396-280h284v80H396Z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.025,0,0,0.025,0,24)">
+        <path d="M396,-200C331.333,-200 275.833,-221 229.5,-263C183.167,-305 160,-357.333 160,-420C160,-482.667 183.167,-535 229.5,-577C275.833,-619 331.333,-640 396,-640L648,-640L544,-744L600,-800L800,-600L600,-400L544,-456L648,-560L396,-560C354,-560 317.5,-546.667 286.5,-520C255.5,-493.333 240,-460 240,-420C240,-380 255.5,-346.667 286.5,-320C317.5,-293.333 354,-280 396,-280L680,-280L680,-200L396,-200Z" style="fill:rgb(227,227,227);fill-rule:nonzero;"/>
+    </g>
+</svg>

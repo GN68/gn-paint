@@ -6,7 +6,7 @@
 
 [node name="Button" type="Button" unique_id=1443035166]
 material = SubResource("CanvasItemMaterial_1bvp3")
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(32, 32)
 icon = ExtResource("1_ektug")
 icon_alignment = 1
 expand_icon = true

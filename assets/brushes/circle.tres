@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GNpBrushHead" format=3 uid="uid://cmrabdk0drumm"]
+
+[ext_resource type="Texture2D" uid="uid://cpq2rulallb2y" path="res://themes/shapes/circle.svg" id="1_haha5"]
+[ext_resource type="Script" uid="uid://brq2fw60wovo6" path="res://scripts/resources/brush_head.gd" id="1_yhll3"]
+[ext_resource type="Material" uid="uid://cd3cfs8f3xb1c" path="res://material/brushes/solid.tres" id="3_j5yvy"]
+
+[resource]
+script = ExtResource("1_yhll3")
+name = "Circle"
+preview = ExtResource("1_haha5")
+shader = ExtResource("3_j5yvy")
+metadata/_custom_type_script = "uid://brq2fw60wovo6"

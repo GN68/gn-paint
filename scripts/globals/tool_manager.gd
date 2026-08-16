@@ -8,6 +8,7 @@ var active_tool: GNpTool
 signal load_tools ## Called before tools are loaded, hook up to this event and add child the custom tools
 signal active_tool_changed(tool: GNpTool,last_tool: GNpTool) ## Called when the tool being used changes
 signal tools_loaded ## Called when all tools has been loaded
+signal input(event: InputEvent)
 
 func _ready() -> void:
 	load_tools.emit()
@@ -20,6 +21,14 @@ func _ready() -> void:
 func register_tool(tool: GNpTool):
 	tools.append(tool)
 
+
+func canvas_input(event: InputEvent):
+	if active_tool:
+		active_tool._canvas_input(event)
+
+func tool_process(delta: float) -> void:
+	if active_tool:
+		active_tool._tool_process(delta)
 
 ## Sets the active tool being used by the user
 func set_active_tool(tool: GNpTool):

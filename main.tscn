@@ -11,9 +11,73 @@
 [ext_resource type="Texture2D" uid="uid://vqi5el0wcmfh" path="res://themes/icons/cut.svg" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://btk0pdoj02s3u" path="res://themes/icons/copy.svg" id="6_dg77c"]
 [ext_resource type="Texture2D" uid="uid://c806v714s6h2w" path="res://themes/icons/paste.svg" id="7_ycdy4"]
+[ext_resource type="Script" uid="uid://yu5y4jhw6745" path="res://scripts/ui/ui_project_list_buttons.gd" id="12_lswn8"]
 [ext_resource type="Texture2D" uid="uid://dmylnbj1yvgxy" path="res://themes/icons/zoom_in.svg" id="12_w48qg"]
+[ext_resource type="LabelSettings" uid="uid://0dv0ugjiyp8q" path="res://font/mono_font.tres" id="13_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://drnxf7hwyfkge" path="res://themes/icons/zoom_out.svg" id="13_vivmo"]
 [ext_resource type="Texture2D" uid="uid://dx1uj05xyi25f" path="res://themes/icons/frame.svg" id="14_2cqfq"]
+[ext_resource type="Script" uid="uid://cis6gdm8ceus7" path="res://scripts/ui/ui_toolbar.gd" id="15_1u8w0"]
+[ext_resource type="Script" uid="uid://b60svabburo36" path="res://scripts/ui/buttons/ui_btn_tool_status.gd" id="16_0odxb"]
+[ext_resource type="Texture2D" uid="uid://bxkfe27ewjmle" path="res://themes/icons/clr_picker.svg" id="17_0rl1p"]
+[ext_resource type="PackedScene" uid="uid://c6phi7ktaac7w" path="res://scenes/buttons/color_slider.tscn" id="17_htxhm"]
+[ext_resource type="Script" uid="uid://d0fbr2o7dvfyh" path="res://scripts/ui/ui_tool_options.gd" id="17_lswn8"]
+[ext_resource type="Script" uid="uid://bsd8y0kggqyan" path="res://scripts/ui/ui_layers.gd" id="18_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://bj2d4ne2rte4v" path="res://themes/icons/sliders.svg" id="18_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://bjljs3iktopsh" path="res://themes/icons/palette.svg" id="19_facbu"]
+[ext_resource type="Texture2D" uid="uid://dyx2joy2uc5xq" path="res://themes/icons/layer_add.svg" id="19_xuqvo"]
+[ext_resource type="Script" uid="uid://bb86tyva1rjs6" path="res://scripts/ui/ui_panel_color_picker.gd" id="20_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://b6603srhavlt7" path="res://themes/icons/hide.svg" id="20_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://bbdcv4ri05ij1" path="res://themes/icons/layer_remove.svg" id="20_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://dne1ofuo52nf0" path="res://themes/icons/color_picker.svg" id="21_gngh3"]
+[ext_resource type="Texture2D" uid="uid://d0e3g5dnd4ej4" path="res://themes/icons/layer.svg" id="21_kq58d"]
+[ext_resource type="Texture2D" uid="uid://xwfyws1335p5" path="res://themes/icons/layers.svg" id="21_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://bo8622en3s2dt" path="res://themes/icons/layer_merge.svg" id="22_seu75"]
+[ext_resource type="Texture2D" uid="uid://dcvse13kebgdd" path="res://themes/icons/up.svg" id="23_htxhm"]
+[ext_resource type="Texture2D" uid="uid://bnt4grx8oc8ov" path="res://themes/icons/more_horiz.svg" id="24_facbu"]
+[ext_resource type="Texture2D" uid="uid://cpmjo5w8cwmua" path="res://themes/icons/down.svg" id="24_jq2sk"]
+[ext_resource type="Script" uid="uid://baofyduokcymq" path="res://scripts/ui/ui_canvas.gd" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://cbudxj42mw80s" path="res://scripts/ui/ui_colors_display.gd" id="26_0cp0l"]
+[ext_resource type="FontFile" uid="uid://d166nylybhp6x" path="res://font/JetBrainsMonoNerdFont-Regular.ttf" id="26_b1qrp"]
+[ext_resource type="Script" uid="uid://blqkkf4kjquet" path="res://scripts/ui/ui_color_sliders.gd" id="28_4lmeg"]
+[ext_resource type="Texture2D" uid="uid://dvwbhx4kysap1" path="res://themes/icons/swap.svg" id="28_come4"]
+[ext_resource type="Script" uid="uid://brrqe8me7j0p0" path="res://scripts/ui/ui_input_capturer.gd" id="28_kq58d"]
+[ext_resource type="Script" uid="uid://dgppch7gp7mwr" path="res://scripts/ui/ui_workspace.gd" id="28_seu75"]
+[ext_resource type="Texture2D" uid="uid://b0f5sq4wi24ug" path="res://themes/icons/swap.png" id="29_h8e4i"]
+[ext_resource type="Script" uid="uid://djr31txbp00l7" path="res://scripts/ui/ui_tool_overlays.gd" id="29_qsp4k"]
+[ext_resource type="Script" uid="uid://cawnxp7tyh0x6" path="res://scripts/ui/lbl_version.gd" id="45_0n3wm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4k2k6"]
+content_margin_left = 4.0
+
+[sub_resource type="Gradient" id="Gradient_h8e4i"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h8e4i"]
+gradient = SubResource("Gradient_h8e4i")
+
+[sub_resource type="Gradient" id="Gradient_gngh3"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gngh3"]
+gradient = SubResource("Gradient_gngh3")
+
+[sub_resource type="Gradient" id="Gradient_qnost"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f6a44"]
+gradient = SubResource("Gradient_qnost")
+
+[sub_resource type="Gradient" id="Gradient_0n3wm"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wnkbs"]
+gradient = SubResource("Gradient_0n3wm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0n3wm"]
+font = ExtResource("26_b1qrp")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnost"]
+font = ExtResource("26_b1qrp")
+font_size = 12
+font_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
 
 [node name="Main" type="Node" unique_id=416024504]
 script = ExtResource("1_ycdy4")
@@ -28,6 +92,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
 theme_override_constants/separation = 0
 
 [node name="Topbar" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=1263349056]
@@ -104,87 +170,980 @@ theme_type_variation = &"TabButton"
 text = "Effects"
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=920030218]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer" unique_id=1681395419]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=1701077464]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1594683317]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/PanelContainer" unique_id=571715983]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1072606512]
 layout_mode = 2
 
-[node name="Button6" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=771852414]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3" unique_id=1858619640]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button6" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer2" unique_id=771852414]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
 icon = ExtResource("2_5vw27")
 
-[node name="Button5" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1820211299]
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer2" unique_id=184078407]
 layout_mode = 2
-icon = ExtResource("2_272bh")
-
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=184078407]
-layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
 icon = ExtResource("3_5vw27")
 
-[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=2074381069]
+[node name="Button5" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer2" unique_id=1820211299]
 layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("2_272bh")
 
-[node name="Button7" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=795993961]
-layout_mode = 2
-icon = ExtResource("5_efxa6")
-
-[node name="Button8" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1946567514]
-layout_mode = 2
-icon = ExtResource("6_dg77c")
-
-[node name="Button9" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=485714097]
-layout_mode = 2
-icon = ExtResource("7_ycdy4")
-
-[node name="VSeparator4" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=57532923]
-layout_mode = 2
-
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=485185572]
-layout_mode = 2
-icon = ExtResource("4_kek77")
-
-[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=516518324]
-layout_mode = 2
-icon = ExtResource("5_4c57u")
-
-[node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1310959742]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1940760105]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3" unique_id=774828883]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ProjectListButtons" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer" unique_id=1672622700]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer" unique_id=1940760105]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProjectListButtons" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer/ScrollContainer" unique_id=1672622700]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("12_lswn8")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=447603666]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3" unique_id=1594683317]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=975712947]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3" unique_id=2137847383]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button7" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3/HBoxContainer2" unique_id=795993961]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
+icon = ExtResource("5_efxa6")
+
+[node name="Button8" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3/HBoxContainer2" unique_id=1946567514]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("6_dg77c")
+
+[node name="Button9" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3/HBoxContainer2" unique_id=485714097]
+layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("7_ycdy4")
+
+[node name="VSeparator4" type="VSeparator" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3" unique_id=57532923]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3" unique_id=906512750]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3/HBoxContainer" unique_id=485185572]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
+icon = ExtResource("4_kek77")
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer3/HBoxContainer3/HBoxContainer" unique_id=516518324]
+layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("5_4c57u")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1681395419]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=1600736775]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=920030218]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer" unique_id=402512407]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/HBoxContainer2" unique_id=1553050323]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer3" unique_id=1060759123]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer3/HBoxContainer2" unique_id=354879640]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4k2k6")
+text = "Tool"
+
+[node name="ToolMenuButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer3/HBoxContainer2" unique_id=877820498]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+clip_text = true
+expand_icon = true
+script = ExtResource("16_0odxb")
+
+[node name="ToolOptions" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer3" unique_id=938323671]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("17_lswn8")
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=249937542]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="PanelContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=1490837597]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control" unique_id=724843710]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control/MarginContainer" unique_id=69494351]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control/MarginContainer/HBoxContainer4" unique_id=1415525886]
+layout_mode = 2
+text = "100%"
+label_settings = ExtResource("13_a6jrf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control/MarginContainer/HBoxContainer4" unique_id=1541719742]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control/MarginContainer/HBoxContainer4/HBoxContainer" unique_id=78619696]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
 icon = ExtResource("12_w48qg")
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=72566686]
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control/MarginContainer/HBoxContainer4/HBoxContainer" unique_id=1472345641]
 layout_mode = 2
+theme_type_variation = &"ButtonRight"
 icon = ExtResource("13_vivmo")
 
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=200794815]
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2/Control/MarginContainer/HBoxContainer4" unique_id=1142315212]
 layout_mode = 2
 icon = ExtResource("14_2cqfq")
 
-[node name="Editors" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=1730061294]
+[node name="Editor" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=860876970]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="OpenImageButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor" unique_id=87232498]
+visible = false
+layout_mode = 0
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 127.0
+text = "Open"
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer/VBoxContainer/Editor/OpenImageButton" unique_id=1716082291]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.bmp", "*.ktx", "*.exr", "*.hdr", "*.jpg", "*.jpeg", "*.png", "*.tga", "*.webp")
+use_native_dialog = true
+
+[node name="SaveImageButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor" unique_id=620001643]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 296.0
+offset_top = 96.0
+offset_right = 456.0
+offset_bottom = 128.0
+text = "Save"
+
+[node name="SaveImageDialog" type="FileDialog" parent="CanvasLayer/VBoxContainer/Editor/SaveImageButton" unique_id=1007967324]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+access = 2
+filters = PackedStringArray("*.dds", "*.exr", "*.jpg", "*.jpeg", "*.png", "*.webp")
+use_native_dialog = true
+
+[node name="NewImageButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor" unique_id=248607744]
+visible = false
+layout_mode = 0
+offset_left = 464.0
+offset_top = 96.0
+offset_right = 624.0
+offset_bottom = 128.0
+text = "New Image"
+
+[node name="ImageWizard" type="PopupPanel" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton" unique_id=1644186832]
+oversampling_override = 1.0
+title = "Image Wizard"
+initial_position = 2
+size = Vector2i(276, 136)
+borderless = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard" unique_id=436724979]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 272.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer" unique_id=356836165]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=324482856]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=459906935]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resolution" type="Label" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=282286367]
+layout_mode = 2
+text = "Resolution"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1261479871]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WidthEntry" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=1033535586]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry" unique_id=687013733]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Width"
+
+[node name="Spinbox" type="SpinBox" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry" unique_id=637084593]
+layout_mode = 2
+min_value = 1.0
+max_value = 16384.0
+value = 480.0
+
+[node name="HeightEntry" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=555558126]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HeightEntry" unique_id=2463411]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Height"
+
+[node name="Spinbox" type="SpinBox" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/HeightEntry" unique_id=18325921]
+layout_mode = 2
+min_value = 1.0
+max_value = 16384.0
+value = 360.0
+
+[node name="WidthEntry3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer" unique_id=1936688690]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry3" unique_id=1373530813]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="AcceptButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/NewImageButton/ImageWizard/MarginContainer/VBoxContainer/WidthEntry3" unique_id=324148989]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CanvasLayer/VBoxContainer/Editor" unique_id=1708839321]
+visible = false
+layout_mode = 0
+offset_left = 631.0
+offset_top = 96.0
+offset_right = 791.0
+offset_bottom = 128.0
+color = Color(1, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Editor" unique_id=1871267045]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="Toolbar" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelContainer" unique_id=227635654]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("15_1u8w0")
+
+[node name="PanelColorPicker" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Editor" unique_id=1443484575]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -10.0
+offset_right = 151.0
+offset_bottom = -10.0
+grow_vertical = 0
+script = ExtResource("20_d2t1y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker" unique_id=1212121704]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer" unique_id=911693765]
+layout_mode = 2
+text = "Color Picker"
+icon = ExtResource("21_gngh3")
+alignment = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/Button" unique_id=1715436371]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/Button/HBoxContainer2" unique_id=28248562]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
+icon = ExtResource("17_0rl1p")
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/Button/HBoxContainer2" unique_id=909587632]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("18_ok6jj")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/Button/HBoxContainer2" unique_id=309208258]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("19_facbu")
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/Button/HBoxContainer2" unique_id=2102796253]
+layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("20_ok6jj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer" unique_id=2044732356]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer" unique_id=947095705]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=398004034]
+layout_mode = 2
+theme_override_constants/label_width = 10
+theme_override_constants/sv_width = 169
+theme_override_constants/sv_height = 166
+theme_override_constants/h_width = 25
+edit_intensity = false
+picker_shape = 2
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=548266046]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1448168841]
+layout_mode = 2
+
+[node name="ColorSliders" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2" unique_id=1625883087]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders" unique_id=1143658681]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer" unique_id=139935166]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer" unique_id=2078657099]
+custom_maximum_size = Vector2(-1, 24)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HexLineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2050295407]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("26_b1qrp")
+text = "00ff00"
+placeholder_text = "RRGGBBAA"
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=739135824]
+layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("6_dg77c")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer" unique_id=1035680742]
+custom_maximum_size = Vector2(-1, 22)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonRGB" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1445231145]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonLeft"
+toggle_mode = true
+text = "RGB"
+
+[node name="ButtonHSV" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1700609450]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonHorizontal"
+toggle_mode = true
+button_pressed = true
+text = "HSV"
+
+[node name="ButtonHSL" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=386201261]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonRight"
+toggle_mode = true
+button_pressed = true
+text = "OKHSL"
+
+[node name="ColorsDisplay" type="Control" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer" unique_id=1259210908]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+script = ExtResource("26_0cp0l")
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay" unique_id=802536128]
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+
+[node name="ButtonColorSecondary" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control" unique_id=1393040542]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 39.0
+offset_bottom = 39.0
+theme_type_variation = &"ButtonColor"
+
+[node name="ColorSecondary" type="ColorRect" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control/ButtonColorSecondary" unique_id=62468665]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonColorPrimary" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control" unique_id=764296462]
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 26.0
+theme_type_variation = &"ButtonColor"
+
+[node name="ColorPrimary" type="ColorRect" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control/ButtonColorPrimary" unique_id=2004934396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="SwapColorsButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control" unique_id=561443167]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 40.0
+offset_bottom = 15.0
+theme_type_variation = &"ButtonColor"
+icon = ExtResource("28_come4")
+flat = true
+expand_icon = true
+
+[node name="ResetColorButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control" unique_id=750198652]
+texture_filter = 1
+layout_mode = 0
+offset_top = 26.0
+offset_right = 13.0
+offset_bottom = 39.0
+theme_type_variation = &"ButtonColor"
+icon = ExtResource("29_h8e4i")
+flat = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders" unique_id=742214077]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = -1
+columns = 2
+script = ExtResource("28_4lmeg")
+
+[node name="Label1" type="Label" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=271045738]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "R"
+label_settings = ExtResource("13_a6jrf")
+horizontal_alignment = 1
+
+[node name="ColorSlider1" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=1052562952 instance=ExtResource("17_htxhm")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_h8e4i")
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=1762067665]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "G"
+label_settings = ExtResource("13_a6jrf")
+horizontal_alignment = 1
+
+[node name="ColorSlider2" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=157560586 instance=ExtResource("17_htxhm")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_gngh3")
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=1452370576]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "B"
+label_settings = ExtResource("13_a6jrf")
+horizontal_alignment = 1
+
+[node name="ColorSlider3" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=190353240 instance=ExtResource("17_htxhm")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_f6a44")
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=1741386845]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "A"
+label_settings = ExtResource("13_a6jrf")
+horizontal_alignment = 1
+
+[node name="ColorSlider4" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" unique_id=1359141462 instance=ExtResource("17_htxhm")]
+layout_mode = 2
+size_flags_horizontal = 3
+length = 100
+value = 0
+texture = SubResource("GradientTexture1D_wnkbs")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=685535221]
+layout_mode = 2
+
+[node name="FoldableContainer" type="FoldableContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1273776935]
+layout_mode = 2
+size_flags_horizontal = 3
+folded = true
+title = "Swatches"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer" unique_id=1429571251]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer" unique_id=1364098391]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AddLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/HBoxContainer2" unique_id=936490928]
+custom_maximum_size = Vector2(24, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"ButtonTop"
+icon = ExtResource("12_w48qg")
+icon_alignment = 1
+
+[node name="RemoveLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/HBoxContainer2" unique_id=309557098]
+custom_maximum_size = Vector2(24, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"ButtonVertical"
+icon = ExtResource("13_vivmo")
+icon_alignment = 1
+
+[node name="MoveDownLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/HBoxContainer2" unique_id=1211719959]
+custom_maximum_size = Vector2(24, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"ButtonBottom"
+icon = ExtResource("24_facbu")
+icon_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer" unique_id=584132140]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="HFlowContainer" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer" unique_id=949398259]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1493018045]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=279054498]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=632120696]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=943630648]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button5" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=866779354]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button6" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1930567555]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button7" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=353178684]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button8" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1057151958]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button9" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1581550072]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button10" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=108561542]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button11" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1729949561]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button12" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1882132297]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button13" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=514680665]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button14" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=2070842383]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button15" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1733436328]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button16" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=937307943]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button17" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1024446169]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button18" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1981343695]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button19" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1102382151]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button20" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1525751376]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button21" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=858164172]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button22" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=952029491]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button23" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1607046846]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button24" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1613974416]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button25" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=791362580]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button26" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=2067166592]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button27" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=820445876]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button28" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=402192243]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button29" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=736771020]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button30" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1540520864]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button31" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1861709591]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button32" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1084814432]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="Button33" type="Button" parent="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/FoldableContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=2121594065]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_type_variation = &"ButtonSwatch"
+
+[node name="LayersPanel" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Editor" unique_id=290460883]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -264.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("18_a6jrf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel" unique_id=1713585744]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer" unique_id=520564259]
+layout_mode = 2
+text = "Layers"
+icon = ExtResource("21_xuqvo")
+alignment = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer" unique_id=1630447910]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/ScrollContainer" unique_id=1388030492]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer" unique_id=1927606496]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AddLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1120879039]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
+icon = ExtResource("19_xuqvo")
+
+[node name="RemoveLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1834154679]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("20_qsp4k")
+
+[node name="DuplicateLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1123646627]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("21_kq58d")
+
+[node name="MergeDownLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1691768337]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("22_seu75")
+
+[node name="MoveUpLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/HBoxContainer" unique_id=1697186395]
+layout_mode = 2
+theme_type_variation = &"ButtonHorizontal"
+icon = ExtResource("23_htxhm")
+
+[node name="MoveDownLayerButton" type="Button" parent="CanvasLayer/VBoxContainer/Editor/LayersPanel/VBoxContainer/HBoxContainer" unique_id=901953523]
+layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("24_jq2sk")
+
+[node name="HBoxContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=685834901]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=664152327]
+layout_mode = 2
+
+[node name="SystemStats" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1962122364]
+layout_mode = 2
+label_settings = ExtResource("13_a6jrf")
+
+[node name="Workspace" type="Node" parent="." unique_id=1230896172 node_paths=PackedStringArray("input_capturer", "camera")]
+script = ExtResource("28_seu75")
+input_capturer = NodePath("InputCapturer")
+camera = NodePath("Camera2D")
+
+[node name="InputCapturer" type="Button" parent="Workspace" unique_id=1738948142]
+offset_left = -64703.0
+offset_top = -63977.0
+offset_right = 63667.0
+offset_bottom = 64393.0
+mouse_filter = 1
+flat = true
+script = ExtResource("28_kq58d")
+metadata/_edit_lock_ = true
+
+[node name="Canvas" type="Node2D" parent="Workspace" unique_id=1956213665]
+script = ExtResource("25_0odxb")
+
+[node name="Background" type="Node2D" parent="Workspace/Canvas" unique_id=1042312167]
+
+[node name="Sprite2D" type="Sprite2D" parent="Workspace/Canvas/Background" unique_id=1281353705]
+
+[node name="Layers" type="Node2D" parent="Workspace/Canvas" unique_id=395370505]
+
+[node name="ToolOverlays" type="Node2D" parent="Workspace/Canvas" unique_id=1000311703]
+z_as_relative = false
+script = ExtResource("29_qsp4k")
+
+[node name="Camera2D" type="Camera2D" parent="Workspace" unique_id=468018945]
+
+[node name="AboutDialog" type="AcceptDialog" parent="." unique_id=713978804]
+oversampling_override = 1.0
+title = "About"
+position = Vector2i(0, 36)
+size = Vector2i(437, 201)
+visible = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AboutDialog" unique_id=2127761826]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 429.0
+offset_bottom = 152.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AboutDialog/MarginContainer" unique_id=971195909]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AboutDialog/MarginContainer/VBoxContainer" unique_id=604067241]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AboutDialog/MarginContainer/VBoxContainer/HBoxContainer" unique_id=951088681]
+layout_mode = 2
+text = "GN Paint"
+label_settings = SubResource("LabelSettings_0n3wm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AboutDialog/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2102216644]
+layout_mode = 2
+alignment = 2
+
+[node name="VersionLabel" type="Label" parent="AboutDialog/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186172234]
+layout_mode = 2
+size_flags_vertical = 8
+text = "v0.0.1.alpha"
+label_settings = SubResource("LabelSettings_qnost")
+script = ExtResource("45_0n3wm")
+
+[node name="Label2" type="Label" parent="AboutDialog/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=317056130]
+layout_mode = 2
+text = "© 2022-2026 GNanimates.
+All rights reserved "
+
+[node name="DescriptionLabel" type="Label" parent="AboutDialog/MarginContainer/VBoxContainer" unique_id=469823567]
+layout_mode = 2
+text = "A simple, practical image editor inspired by the spirit of Paint.NET. Build for quickly manipulating images and getting things done"
+autowrap_mode = 3
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" to="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" method="_on_pressed"]
 [connection signal="id_pressed" from="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton/PopupMenu" to="CanvasLayer/VBoxContainer/Topbar/HBoxContainer/FilePopupButton" method="_on_popup_menu_id_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Editor" to="." method="_on_editor_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/VBoxContainer/Editor" to="." method="_on_editor_mouse_exited"]
+[connection signal="color_changed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/ColorPicker" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker" method="_on_color_picker_color_changed"]
+[connection signal="text_submitted" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer/HexLineEdit" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker" method="_on_hex_line_edit_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer3/ButtonRGB" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_button_rgb_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer3/ButtonHSV" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_button_hsv_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/VBoxContainer/HBoxContainer3/ButtonHSL" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_button_hsl_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control/ButtonColorSecondary" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay" method="_on_button_color_secondary_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control/SwapColorsButton" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay" method="_on_swap_colors_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay/Control/ResetColorButton" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/HBoxContainer/ColorsDisplay" method="_on_reset_color_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer/ColorSlider1" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_color_slider_1_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer/ColorSlider2" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_color_slider_2_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer/ColorSlider3" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_color_slider_3_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer/ColorSlider4" to="CanvasLayer/VBoxContainer/Editor/PanelColorPicker/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer2/ColorSliders/GridContainer" method="_on_color_slider_4_value_changed"]
+[connection signal="mouse_entered" from="Workspace/InputCapturer" to="Workspace/InputCapturer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Workspace/InputCapturer" to="Workspace/InputCapturer" method="_on_mouse_exited"]

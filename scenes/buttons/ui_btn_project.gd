@@ -1,6 +1,6 @@
 extends Button
 
-var editor: GNpEditor
+var project: GNpProject
 
 func _on_pressed() -> void:
-	GNp.set_focused_editor(editor)
+	GNp.set_active_project(project)

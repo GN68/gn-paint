@@ -37,35 +37,35 @@ text = "Resolution"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HeightEntry" type="HBoxContainer" parent="VBoxContainer" unique_id=1193781170]
+[node name="WidthEntry" type="HBoxContainer" parent="VBoxContainer" unique_id=1193781170]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HeightEntry" unique_id=1264176716]
+[node name="Label" type="Label" parent="VBoxContainer/WidthEntry" unique_id=1264176716]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Width"
 
-[node name="HeightSpinBox" type="SpinBox" parent="VBoxContainer/HeightEntry" unique_id=1557583363]
+[node name="WidthSpinBox" type="SpinBox" parent="VBoxContainer/WidthEntry" unique_id=1557583363]
 layout_mode = 2
 min_value = 1.0
-max_value = 16384.0
-value = 1.0
+max_value = 16383.0
+value = 480.0
 rounded = true
 suffix = "px"
 
-[node name="WidthEntry" type="HBoxContainer" parent="VBoxContainer" unique_id=2144078935]
+[node name="HeightEntry" type="HBoxContainer" parent="VBoxContainer" unique_id=2144078935]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/WidthEntry" unique_id=1756059754]
+[node name="Label" type="Label" parent="VBoxContainer/HeightEntry" unique_id=1756059754]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Width"
+text = "Height"
 
-[node name="WidthSpinBox" type="SpinBox" parent="VBoxContainer/WidthEntry" unique_id=1239636247]
+[node name="HeightSpinBox" type="SpinBox" parent="VBoxContainer/HeightEntry" unique_id=1239636247]
 layout_mode = 2
 min_value = 1.0
-max_value = 16384.0
-value = 1.0
+max_value = 16383.0
+value = 360.0
 rounded = true
 suffix = "px"
 

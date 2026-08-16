@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://0dv0ugjiyp8q"]
+
+[ext_resource type="FontFile" uid="uid://d166nylybhp6x" path="res://font/JetBrainsMonoNerdFont-Regular.ttf" id="1_ucw6e"]
+
+[resource]
+font = ExtResource("1_ucw6e")

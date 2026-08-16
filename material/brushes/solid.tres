@@ -17,7 +17,7 @@ uniform sampler2D source_texture3 : hint_blit_source3;
 void blit() {
 	float dist = length(UV-0.5);
 	float sharpness = max(smoothness,2.0/float(resolution));
-	float a = smoothstep(0.5, 0.5-sharpness*0.5, length(UV-vec2(0.5)));
+	float a = smoothstep(0.5+(1.0/float(resolution)), 0.5-sharpness*0.5, length(UV-vec2(0.5)));
 	COLOR0 = vec4(1,1,1,a) * MODULATE;
 }"
 

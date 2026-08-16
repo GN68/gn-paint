@@ -1,0 +1,60 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cgse7jt1htnfg"]
+
+[sub_resource type="Shader" id="Shader_rmdca"]
+code = "shader_type canvas_item;
+
+const float OUTLINE_SIZE = 2.0; 
+
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
+
+varying vec2 zoom;
+
+void vertex() {
+	zoom = vec2(
+		1.0 / CANVAS_MATRIX[0].x / MODEL_MATRIX[0].x,
+		1.0 / CANVAS_MATRIX[1].y / MODEL_MATRIX[1].y
+	);
+}
+
+// same as texture() but returns vec4(0) when out of bounds
+vec4 clampedTexture(sampler2D tex, vec2 uv) {
+	float inside =
+	step(0.0, uv.x) *
+	step(0.0, uv.y) *
+	step(uv.x, 1.0) *
+	step(uv.y, 1.0);
+	return texture(tex, uv) * inside;
+}
+
+float sample(sampler2D tex,vec2 uv,float ox,float oy) {
+	return min(clampedTexture(tex,uv + vec2(ox,oy)).a * 100.0, 1.0);
+}
+
+void fragment() {
+	vec2 o = vec2(OUTLINE_SIZE) * TEXTURE_PIXEL_SIZE * zoom;
+	vec4 clr = texture(TEXTURE,UV);
+	
+	// sample 4 corners
+	float br = sample(TEXTURE,UV, o.x, o.y);
+	float bl = sample(TEXTURE,UV, o.x,-o.y);
+	float tr = sample(TEXTURE,UV,-o.x, o.y);
+	float tl = sample(TEXTURE,UV,-o.x,-o.y);
+	
+	// usful datr
+	float is_outline = 1.0-min(min(br, bl), min(tr, tl));
+	vec2 norm_screen_uv = SCREEN_UV * (0.5 / SCREEN_PIXEL_SIZE);
+	
+	// really optimied square wave
+	float phase = TIME * 10.0
+	+ (norm_screen_uv.y * tl - norm_screen_uv.y * bl)
+	+ (norm_screen_uv.x * br - norm_screen_uv.x * bl);
+	float w = step(0.0, sin(phase));
+	
+	vec4 screen_tex = texture(SCREEN_TEXTURE,SCREEN_UV);
+	
+	COLOR = vec4(1.0-screen_tex.xyz,is_outline*clr.a*1000.0);
+}
+"
+
+[resource]
+shader = SubResource("Shader_rmdca")

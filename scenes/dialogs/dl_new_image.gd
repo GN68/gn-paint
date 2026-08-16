@@ -5,5 +5,9 @@ extends ConfirmationDialog
 @onready var background_color_picker_button: ColorPickerButton = $VBoxContainer/HeightEntry2/BackgroundColorPickerButton
 
 func _on_confirmed() -> void:
-	var project = GNpProject.new(width_spin_box.value,height_spin_box.value,background_color_picker_button.color)
-	GNp.new_editor(project)
+	var project = GNpProject.new(
+		width_spin_box.value,
+		height_spin_box.value,
+		background_color_picker_button.color
+	)
+	GNp.load_project(project)

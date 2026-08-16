@@ -19,7 +19,7 @@ func _on_file_selected(path: String) -> void:
 			image = Image.load_from_file(path)
 			print(image.get_size())
 	var project = GNpProject.create_from_image(image,path)
-	GNp.new_editor(project)
+	GNp.load_project(project)
 
 func _on_close_requested() -> void:
 	queue_free()

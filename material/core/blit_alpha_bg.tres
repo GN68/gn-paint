@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhjkvfhibwrpb"]
+
+[sub_resource type="Shader" id="Shader_smoqx"]
+code = "shader_type texture_blit;
+render_mode blend_disabled;
+
+uniform sampler2D tex1: hint_blit_source0;
+
+void blit() {
+	vec4 clr = texture(tex1,UV);
+	COLOR0 = vec4(clr.rgb / 1.0,0.0);
+}
+"
+
+[resource]
+shader = SubResource("Shader_smoqx")

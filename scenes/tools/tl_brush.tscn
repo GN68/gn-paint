@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bydfccxqvpeax" path="res://scenes/tools/tl_brush.gd" id="1_y20bj"]
 [ext_resource type="Texture2D" uid="uid://bxr53trob86g5" path="res://themes/icons/brush.svg" id="2_g6n52"]
+[ext_resource type="Material" uid="uid://cgse7jt1htnfg" path="res://material/ui/brush_outline.tres" id="3_e8bjq"]
+[ext_resource type="Script" uid="uid://i2uwrinv0amj" path="res://scenes/tools/edit_progress_bar.gd" id="3_qvns7"]
+[ext_resource type="Texture2D" uid="uid://du7q46q5xc3gh" path="res://themes/icons/anti_alias.svg" id="3_r3dp3"]
+[ext_resource type="Texture2D" uid="uid://cpq2rulallb2y" path="res://themes/shapes/circle.svg" id="4_e8bjq"]
+[ext_resource type="Texture2D" uid="uid://dwq7k8pnrfabv" path="res://themes/icons/alias.svg" id="4_qvns7"]
 
 [node name="Brush" type="Node" unique_id=520043606 node_paths=PackedStringArray("toolbar", "overlay")]
 script = ExtResource("1_y20bj")
@@ -16,15 +21,74 @@ anchor_right = 1.0
 offset_bottom = 24.0
 grow_horizontal = 2
 
+[node name="Label3" type="Label" parent="BrushToolbar" unique_id=1580696208]
+layout_mode = 2
+text = "Shape"
+horizontal_alignment = 2
+
+[node name="OptionButton" type="OptionButton" parent="BrushToolbar" unique_id=669047016]
+layout_mode = 2
+expand_icon = true
+selected = 0
+item_count = 1
+popup/item_0/text = "Circle"
+popup/item_0/id = 0
+
 [node name="Label" type="Label" parent="BrushToolbar" unique_id=903290994]
 layout_mode = 2
-text = "Brush Size"
+text = "Brush width"
+horizontal_alignment = 2
 
 [node name="BrushSizeSpinBox" type="SpinBox" parent="BrushToolbar" unique_id=806721960]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-value = 4.0
+min_value = 1.0
+max_value = 1024.0
+value = 16.0
 rounded = true
 allow_greater = true
 suffix = "px"
 
+[node name="Label4" type="Label" parent="BrushToolbar" unique_id=1250085970]
+layout_mode = 2
+text = "Smooth"
+horizontal_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="BrushToolbar" unique_id=808496051]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+script = ExtResource("3_qvns7")
+
+[node name="Label2" type="Label" parent="BrushToolbar" unique_id=1243007307]
+layout_mode = 2
+text = "Aliasing"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BrushToolbar" unique_id=5887392]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MergeDownLayerButton2" type="Button" parent="BrushToolbar/HBoxContainer" unique_id=136704553]
+layout_mode = 2
+theme_type_variation = &"ButtonLeft"
+icon = ExtResource("3_r3dp3")
+
+[node name="MergeDownLayerButton" type="Button" parent="BrushToolbar/HBoxContainer" unique_id=1251006792]
+layout_mode = 2
+theme_type_variation = &"ButtonRight"
+icon = ExtResource("4_qvns7")
+
 [node name="Canvas" type="Node2D" parent="." unique_id=1440808620]
+visible = false
+
+[node name="Brush" type="Node2D" parent="Canvas" unique_id=1050090283]
+
+[node name="Preview" type="Sprite2D" parent="Canvas/Brush" unique_id=404688321]
+texture_filter = 1
+texture_repeat = 1
+material = ExtResource("3_e8bjq")
+texture = ExtResource("4_e8bjq")
+
+[connection signal="value_changed" from="BrushToolbar/BrushSizeSpinBox" to="." method="_on_brush_size_spin_box_value_changed"]

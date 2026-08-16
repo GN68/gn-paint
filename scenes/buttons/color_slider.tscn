@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c6phi7ktaac7w"]
+
+[ext_resource type="Script" uid="uid://cndqv08pjyq2s" path="res://scenes/buttons/ui_color_slider.gd" id="1_hfs8v"]
+[ext_resource type="FontFile" uid="uid://d166nylybhp6x" path="res://font/JetBrainsMonoNerdFont-Regular.ttf" id="2_22qmj"]
+
+[sub_resource type="Gradient" id="Gradient_22qmj"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h8e4i"]
+gradient = SubResource("Gradient_22qmj")
+
+[node name="ColorSlider" type="Button" unique_id=1012329485]
+custom_minimum_size = Vector2(0, 18)
+anchors_preset = -1
+anchor_right = 0.133
+anchor_bottom = 0.025
+offset_right = 0.3199997
+theme_type_variation = &"ButtonColor"
+script = ExtResource("1_hfs8v")
+texture = SubResource("GradientTexture1D_h8e4i")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=961789957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_h8e4i")
+expand_mode = 1
+
+[node name="Knob" type="Control" parent="." unique_id=1761834679]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 64.250984
+offset_right = 64.250984
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="Knob" unique_id=1822102622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"ButtonColor"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1410711444]
+custom_maximum_size = Vector2(-1, 18)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_22qmj")
+text = "128"
+alignment = 1
+flat = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

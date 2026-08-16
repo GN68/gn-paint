@@ -32,7 +32,7 @@ func _open_image():
 func _save_image():
 	var dialog: GNpSaveProjectDialog = DIALOG_SAVE_PROJECT.instantiate()
 	get_tree().current_scene.add_child(dialog)
-	dialog.setup(GNp.current_editor.project)
+	dialog.setup(GNp.active_project)
 
 func _save_as_image():
 	pass

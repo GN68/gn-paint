@@ -4,14 +4,23 @@ class_name GNpEditorCanvas
 @onready var ui_overlays = $Overlays
 @onready var ui_layers = $Layers
 
-@onready var editor := GNp.get_editor(self)
+# Recommended version, location independent
+const CV_LAYER = preload("uid://d18r22n6l8wkw")
 
 
 func _ready() -> void:
-	await editor.prepared
-	editor.project.layer_added.connect(_on_layer_added)
-	editor.project.layer_removed.connect(_on_layer_removed)
+	GNp.active_project_changed.connect(_on_active_project_changed)
+
+func _on_active_project_changed(project: GNpProject,last_project: GNpProject):
+	if last_project:
+		last_project.layer_added.disconnect(_on_layer_added)
+		last_project.layer_removed.disconnect(_on_layer_removed)
+	
+	if project:
+		project.layer_added.connect(_on_layer_added)
+		project.layer_removed.connect(_on_layer_removed)
 	rebuild_ui_layers()
+
 
 func _on_layer_added(index: int, layer: GNpLayer):
 	rebuild_ui_layers()
@@ -23,15 +32,13 @@ func _on_layer_removed(index: int, layer: GNpLayer):
 
 #TODO: swap to a more sophisticated method
 func rebuild_ui_layers():
-	
 	for child in ui_layers.get_children():
 		child.queue_free()
 	
 	var c = 0
-	for layer in editor.project.layers:
+	for layer in GNp.active_project.layers:
 		c += 1
-		var ui_layer = Sprite2D.new()
-		ui_layer.name = str("Layer",c)
-		ui_layer.texture = layer.texture
-		ui_layer.centered = false
+		var ui_layer:GNpLayerRenderer = CV_LAYER.instantiate()
 		ui_layers.add_child(ui_layer)
+		ui_layer.name = str("Layer",c)
+		ui_layer.setup(layer)

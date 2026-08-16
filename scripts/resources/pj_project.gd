@@ -14,20 +14,26 @@ const FILE_EXTENSION = ".gnp"
 @export var history: Array[Image]
 @export var version: int = 0
 
+@export_category("Editor")
+@export var active_layer: GNpLayer
+#@export var camera_pos: Vector2
+#@export var camera_zoom: float
 
 signal layer_added(index: int,layer: GNpLayer)
 signal layer_removed(index: int)
+signal active_layer_changed(index: int)
 
 
 func _init(width: int = 480, height: int = 360,background_color: Color = Color.WHITE):
 	resolution = Vector2i(width,height)
 	new_layer(0,background_color)
+	active_layer = layers[0]
 
 static func create_from_image(image: Image,source: String):
 	var project = GNpProject.new(image.get_width(),image.get_height())
 	project.name = source.get_file()
 	project.source = source
-	project.get_layer(0).load_image(image)
+	project.get_layer(0).replace_image(image)
 	return project
 
 func get_layer(index: int):
@@ -47,35 +53,63 @@ func layer_set(index: int, layer: GNpLayer):
 		layer_removed.emit(index)
 		layers.set(index,layer)
 		layer_added.emit(index,layer)
+		layer.layer_index = index
 	elif index == layers.size():
 		layers.append(layer)
 		layer_added.emit(index,layer)
+		layer.layer_index = index
 
 
 ## Adds the given [GNpLayer] to the project
 func layer_add(layer: GNpLayer):
 	var index = layers.size()
 	layers.append(layer)
+	layer.layer_index = index
 	layer_added.emit(index)
 
 
 ## Removes the given [GNpLayer] to the project
-func layer_remove(index: int):
-	if layers.has(index):
-		layers.remove_at(index)
-		layer_removed.emit(index)
+func layer_remove(layer: GNpLayer):
+	if layers.has(layer):
+		layers.erase(layer)
+		layer_removed.emit(layer.layer_index)
 
 
 ## removes the layer with the given id,
 ## Note that this removes the layer with its unique ID, not the project layer ID
-func layer_remove_by_id(layer_id: int):
-	var i = 0
-	for layer in layers:
-		if layer.id == layer_id:
-			layers.remove_at(i)
-			layer_removed.emit()
-			return
-		i += 1
+func layer_remove_by_index(index: int):
+	if index <= 0 and index > layers.size():
+		layers.remove_at(index)
+		layer_removed.emit(index)
+
+
+## TODO: implement
+func select_layer_by_index(index: int):
+	index = clampi(index,0,layers.size()-1)
+	pass
+
+func select_layer(layer: GNpLayer):
+	if layers.has(layer):
+		if layer != active_layer:
+			var last_active_layer := active_layer
+			active_layer = layer
+			active_layer_changed.emit(layer,last_active_layer)
+
+
+#TODO: IMPLEMENT METHOD
+func marge_layers(layer1: GNpLayer,layer2: GNpLayer):
+	var workspace = layer1.workspace
+	workspace.request_proposal()
+	var ogParent = layer2.workspace.get_parent()
+	layer2.workspace.reparent(workspace.overlay)
+	
+	await RenderingServer.frame_post_draw
+	workspace.confirm_proposal()
+	
+	await RenderingServer.frame_post_draw
+	layer2.workspace.reparent(ogParent)
+	layer2.remove_layer()
+
 
 ## Packs the project file into a buffer
 #TODO: replace with a strict method
