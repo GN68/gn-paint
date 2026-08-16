@@ -135,36 +135,42 @@ item_4/text = "Save Image as"
 item_4/id = 4
 
 [node name="EditPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1256799707]
+visible = false
 layout_mode = 2
 theme_type_variation = &"TabButton"
 text = "Edit"
 flat = true
 
 [node name="ViewPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1637815154]
+visible = false
 layout_mode = 2
 theme_type_variation = &"TabButton"
 text = "View"
 flat = true
 
 [node name="ImagePopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=248731011]
+visible = false
 layout_mode = 2
 theme_type_variation = &"TabButton"
 text = "Image"
 flat = true
 
 [node name="LayerPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1722555763]
+visible = false
 layout_mode = 2
 theme_type_variation = &"TabButton"
 text = "Layers"
 flat = true
 
 [node name="AdjustPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1264689607]
+visible = false
 layout_mode = 2
 theme_type_variation = &"TabButton"
 text = "Adjustments"
 flat = true
 
 [node name="EffectsPopupButton" type="Button" parent="CanvasLayer/VBoxContainer/Topbar/HBoxContainer" unique_id=1727737825]
+visible = false
 layout_mode = 2
 theme_type_variation = &"TabButton"
 text = "Effects"
@@ -1089,7 +1095,6 @@ oversampling_override = 1.0
 title = "About"
 position = Vector2i(0, 36)
 size = Vector2i(437, 201)
-visible = true
 
 [node name="MarginContainer" type="MarginContainer" parent="AboutDialog" unique_id=2127761826]
 offset_left = 8.0
